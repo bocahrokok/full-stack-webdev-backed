@@ -8,13 +8,15 @@ app.get("/welcome", function(req, res){
 
 
 app.get("/speak/:animal", function(req, res){
+	var sounds = {
+		pig: "Oink",
+		cow: "Moo",
+		dog: "Woof woff!",
+		cat: "I hate you human",
+	},
 	var animal = req.params.animal;
-	var sound = " ";
-	if(animal === "pig"){
-		sound = "pig!";
-	} else if (animal=="cow"){
-		sound = "moo";
-	}
+	var sound = sound[animal];
+
 	res.send("The" + animal + "says" + sound );
 });
 
